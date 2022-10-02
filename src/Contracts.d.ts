@@ -52,6 +52,8 @@ export interface ICalendarEvent {
      * Title of the event
      */
     title: string;
+
+    categoryColor?: string;
 }
 
 export interface ICalendarMember {

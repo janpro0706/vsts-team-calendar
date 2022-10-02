@@ -62,6 +62,7 @@ export class AddEditEventDialog extends React.Component<IAddEditEventDialogProps
     title: ObservableValue<string>;
     description: ObservableValue<string>;
     category: string;
+    categoryColor?: string;
     message: ObservableValue<string>;
     catagorySelection: IListSelection;
 
@@ -80,6 +81,7 @@ export class AddEditEventDialog extends React.Component<IAddEditEventDialogProps
             this.title = new ObservableValue<string>(this.props.eventApi.title);
             this.description = new ObservableValue<string>(this.props.eventApi.extendedProps.description || "");
             this.category = this.props.eventApi.extendedProps.category;
+            this.categoryColor = this.props.eventApi.extendedProps.categoryColor;
             this.catagorySelection.select(0);
         } else {
             this.startDate = props.start;
@@ -87,6 +89,7 @@ export class AddEditEventDialog extends React.Component<IAddEditEventDialogProps
             this.title = new ObservableValue<string>("");
             this.description = new ObservableValue<string>("");
             this.category = "";
+            this.categoryColor = "";
         }
         this.okButtonEnabled = new ObservableValue<boolean>(false);
         this.isConfirmationDialogOpen = new ObservableValue<boolean>(false);
@@ -150,6 +153,10 @@ export class AddEditEventDialog extends React.Component<IAddEditEventDialogProps
                                 />
                             </div>
                             <div className="input-row flex-row">
+                                <span>Category Color</span>
+                                <TextField className="column-2" onChange={this.onInputCategoryColor} value={this.categoryColor} />
+                            </div>
+                            <div className="input-row flex-row">
                                 <span>Description</span>
                                 <TextField className="column-2" onChange={this.onInputDescription} multiline={true} value={this.description} />
                             </div>
@@ -202,6 +209,11 @@ export class AddEditEventDialog extends React.Component<IAddEditEventDialogProps
 
     private onDeleteClick = async (): Promise<void> => {
         this.isConfirmationDialogOpen.value = true;
+    };
+
+    private onInputCategoryColor = (e: React.ChangeEvent, value: string): void => {
+        this.categoryColor = value;
+        this.validateSelections();
     };
 
     private onInputDescription = (e: React.ChangeEvent, value: string): void => {

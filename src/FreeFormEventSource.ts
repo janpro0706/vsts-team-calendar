@@ -19,12 +19,13 @@ export class FreeFormEventsSource {
     selectedTeamId: string = "";
     summaryData: ObservableArray<IEventCategory> = new ObservableArray<IEventCategory>([]);
 
-    public addEvent = (title: string, startDate: Date, endDate: Date, category: string, description: string): PromiseLike<ICalendarEvent> => {
+    public addEvent = (title: string, startDate: Date, endDate: Date, category: string, description: string, categoryColor?: string): PromiseLike<ICalendarEvent> => {
         const start = shiftToUTC(startDate);
         const end = shiftToUTC(endDate);
 
         const event: ICalendarEvent = {
             category: category,
+            categoryColor: categoryColor || "",
             description: description,
             endDate: end.toISOString(),
             startDate: start.toISOString(),
@@ -98,7 +99,7 @@ export class FreeFormEventsSource {
                         const excludedEndDate = new Date(end);
                         excludedEndDate.setDate(end.getDate() + 1);
 
-                        const eventColor = generateColor(event.category);
+                        const eventColor = event.categoryColor || generateColor(event.category);
 
                         inputs.push({
                             id: FreeFormId + "." + event.id,
