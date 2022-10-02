@@ -221,7 +221,8 @@ export class AddEditEventDialog extends React.Component<IAddEditEventDialogProps
                 this.startDate,
                 this.endDate,
                 this.category,
-                this.description.value
+                this.description.value,
+                value,
             );
         } else {
             promise = this.props.eventSource.addEvent(this.title.value, this.startDate, this.endDate, this.category, this.description.value, value);

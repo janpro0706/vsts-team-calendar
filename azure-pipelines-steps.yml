@@ -14,7 +14,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathToPublish: 'HyeondongJang.custom-team-calendar-2.*'
+    PathToPublish: 'HyeondongJang.custom-team-calendar-2.0.23'
     ArtifactName: 'custom-team-calendar'
     publishLocation: 'Container'
   displayName: 'Artifact'

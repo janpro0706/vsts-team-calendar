@@ -158,7 +158,8 @@ export class FreeFormEventsSource {
         startDate: Date,
         endDate: Date,
         category: string,
-        description: string
+        description: string,
+        categoryColor?: string,
     ): PromiseLike<ICalendarEvent> => {
         const oldEvent = this.eventMap[id];
         const oldStartDate = new Date(oldEvent.startDate);
@@ -168,6 +169,7 @@ export class FreeFormEventsSource {
         oldEvent.endDate = shiftToUTC(endDate).toISOString();
         oldEvent.startDate = shiftToUTC(startDate).toISOString();
         oldEvent.title = title;
+        oldEvent.categoryColor = categoryColor;
 
         const collectionNameOld = this.selectedTeamId! + "." + formatDate(oldStartDate, "MM-YYYY");
         const collectionNameNew = this.selectedTeamId! + "." + formatDate(startDate, "MM-YYYY");
