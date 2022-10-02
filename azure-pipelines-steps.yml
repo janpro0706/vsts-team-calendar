@@ -11,3 +11,11 @@ steps:
 - script: |
     npm run build
   displayName: 'Compile and package'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathToPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Artifact'
+
