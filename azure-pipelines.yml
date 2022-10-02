@@ -13,4 +13,3 @@ jobs:
     vmImage: 'windows-2022'
   steps:
   - template: azure-pipelines-steps.yml
-  
