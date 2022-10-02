@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
-  "id": "team-calendar",
-  "publisher": "ms-devlabs",
+  "id": "custom-team-calendar",
+  "publisher": "janpro",
   "version": "2.0.16",
   "name": "Team Calendar",
   "description": "Track events important to your team, view and manage days off, quickly see when sprints start and end, and more.",
@@ -26,16 +26,16 @@
   },
   "links": {
     "support": {
-      "uri": "https://github.com/Microsoft/vsts-team-calendar/issues"
+      "uri": "https://github.com/janpro0706/vsts-team-calendar/issues"
     }
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vsts-team-calendar"
+    "url": "https://github.com/janpro0706/vsts-team-calendar"
   },
   "badges": [
     {
-      "href": "https://github.com/Microsoft/vsts-team-calendar",
+      "href": "https://github.com/janpro0706/vsts-team-calendar",
       "uri": "https://mseng.visualstudio.com/_apis/public/build/definitions/b924d696-3eae-4116-8443-9a18392d8544/2715/badge",
       "description": "Team Calendar CI build status"
     }
