@@ -213,6 +213,22 @@ export class AddEditEventDialog extends React.Component<IAddEditEventDialogProps
 
     private onInputCategoryColor = (e: React.ChangeEvent, value: string): void => {
         this.categoryColor = value;
+        let promise;
+        if (this.props.eventApi) {
+            promise = this.props.eventSource.updateEvent(
+                this.props.eventApi.extendedProps.id,
+                this.title.value,
+                this.startDate,
+                this.endDate,
+                this.category,
+                this.description.value
+            );
+        } else {
+            promise = this.props.eventSource.addEvent(this.title.value, this.startDate, this.endDate, this.category, this.description.value, value);
+        }
+        promise.then(() => {
+            this.props.calendarApi.refetchEvents();
+        });
         this.validateSelections();
     };
 
